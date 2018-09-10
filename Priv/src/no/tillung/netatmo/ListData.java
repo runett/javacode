@@ -24,8 +24,10 @@ public class ListData {
 	 * @param clientSecret
 	 * @param email
 	 * @param pwd
+	 * @param todate 
+	 * @param fromdate 
 	 */
-	public static void list(String clientID, String clientSecret, String email, String pwd) {
+	public static void list(String clientID, String clientSecret, String email, String pwd, String fromdate, String todate) {
 	
 		NetatmoHttpClient client = new NetatmoHttpClient(clientID, clientSecret);
 		OAuthJSONAccessTokenResponse token;
@@ -50,8 +52,8 @@ public class ListData {
 		Date dateBegin;
 		Date dateEnd;
 		try {
-			dateBegin = f.parse("01/08/2018");
-			dateEnd = f.parse("31/08/2018");
+			dateBegin = f.parse(fromdate);
+			dateEnd = f.parse(todate);
 		} catch (ParseException e) {
 			e.printStackTrace();
 			return;
