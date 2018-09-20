@@ -34,6 +34,15 @@ public class ListData {
 		try {
 			token = client.login(email, pwd);
 			
+			Long expiresIn = token.getExpiresIn();
+			String refreshToken = token.getRefreshToken();
+			System.out.println("Token expiresIn: " + expiresIn + " refreshToken: "+ refreshToken);
+			
+			refreshToken = token.getRefreshToken();
+			expiresIn = token.getExpiresIn();
+			System.out.println("Token expiresIn: " + expiresIn + " refreshToken: "+ refreshToken);
+
+			
 			// keep token...
 			//token.
 		} catch (OAuthSystemException e1) {
@@ -61,7 +70,8 @@ public class ListData {
 		
 		List<Station> stations;
 		try {
-			stations = client.getDevicesList(token);
+			stations = client.getStationsData(token, null, null);
+			//stations = client.getDevicesList(token);
 			
 			for (Station station : stations)
 			{

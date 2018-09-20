@@ -19,21 +19,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Station {
-    String name;
-    String id;
-    List<Module> modules;
+    private String name;
+    private String id;
+    private List<Module> modules;
 
-    public Station(String name, String id) {
+    public Station(final String name, final String id) {
         this.name = name;
         this.id = id;
         this.modules = new ArrayList<>();
+    }
+
+    public Station(final Station station) {
+        this.name = station.getName();
+        this.id = station.getId();
+        this.modules = new ArrayList<>(station.getModules());
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = name;
     }
 
@@ -41,7 +47,7 @@ public class Station {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(final String id) {
         this.id = id;
     }
 
@@ -49,11 +55,11 @@ public class Station {
         return modules;
     }
 
-    public void setModules(List<Module> modules) {
+    public void setModules(final List<Module> modules) {
         this.modules = modules;
     }
 
-    public void addModule(Module module) {
+    public void addModule(final Module module) {
         this.modules.add(module);
     }
 }

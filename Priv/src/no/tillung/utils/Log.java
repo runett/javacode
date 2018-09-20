@@ -3,12 +3,14 @@ package no.tillung.utils;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Date;
 import java.util.Vector;
 
 public class Log {
 	String filename = null;
 	Vector<String> buffer = null;
 	private int buffersize = 0;
+	private boolean logDateTime = false;
 	
 	public Log(String filename)
 	{
@@ -47,6 +49,9 @@ public class Log {
 	 */
 	public void trace(Object o)
 	{
+		String ts = "";
+		if (this.logDateTime)
+			ts += new Date() + ": ";
 		try {
 			if (filename != null)
 			{
@@ -58,10 +63,10 @@ public class Log {
 				}
 				else
 				{
-					this.write(o.toString());
+					this.write(ts + o.toString());
 				}
 			}
-			System.out.println(o.toString());
+			System.out.println(ts + o.toString());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -95,6 +100,10 @@ public class Log {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+
+	public void logDateTime(boolean b) {
+		this.logDateTime  = b;
 	}
 
 }

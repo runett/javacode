@@ -16,17 +16,17 @@
 package losty.netatmo.model;
 
 public class Module {
+
     public static final String TYPE_OUTDOOR = "NAModule1";
     public static final String TYPE_WIND_GAUGE = "NAModule2";
     public static final String TYPE_RAIN_GAUGE = "NAModule3";
     public static final String TYPE_INDOOR = "NAModule4";
 
-    String name;
-    String id;
-    String type;
-    Measures measures;
+    private String name;
+    private String id;
+    private String type;
 
-    public Module(String name, String id, String type) {
+    public Module(final String name, final String id, final String type) {
         this.name = name;
         this.id = id;
         this.type = type;
@@ -36,7 +36,7 @@ public class Module {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = name;
     }
 
@@ -44,7 +44,7 @@ public class Module {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(final String id) {
         this.id = id;
     }
 
@@ -52,15 +52,7 @@ public class Module {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(final String type) {
         this.type = type;
-    }
-
-    public Measures getMeasures() {
-        return measures;
-    }
-
-    public void setMeasures(Measures measures) {
-        this.measures = measures;
     }
 }

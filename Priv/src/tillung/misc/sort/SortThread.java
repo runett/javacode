@@ -169,6 +169,7 @@ public class SortThread extends Thread {
 				pos1++;
 			}
 			
+			/* hva er dette?
 			else
 			{
 				if (Sort.greater(arr[pos1], arr[pos2]))
@@ -176,6 +177,7 @@ public class SortThread extends Thread {
 				else
 					pos1++;
 			}
+			*/
 		}
 
 		System.out.println("merged:");
